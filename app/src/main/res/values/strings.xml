@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EAInterviewTask</string>
+    <string name="cars_machinery"><![CDATA[Cars & Machinery]]></string>
+    <string name="scroll_down_to_search">Scroll down to Search</string>
+    <string name="loading">Loading...</string>
+    <string name="lot">Lot #</string>
+    <string name="bids">Bids</string>
+    <string name="time_left">Time Left</string>
+    <string name="aed">AED</string>
+</resources>
