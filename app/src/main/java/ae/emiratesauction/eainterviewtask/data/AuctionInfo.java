@@ -1,4 +1,4 @@
-package ae.emiratesauction.eainterviewtask.models;
+package ae.emiratesauction.eainterviewtask.data;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

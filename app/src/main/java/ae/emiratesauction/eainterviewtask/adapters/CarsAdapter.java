@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import ae.emiratesauction.eainterviewtask.R;
-import ae.emiratesauction.eainterviewtask.models.Car;
+import ae.emiratesauction.eainterviewtask.data.Car;
 
 /**
  * Created by ASUS on 03/05/2016.
@@ -55,12 +55,14 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
             holder.currency_tv.setText(car.getAuctionInfo().getCurrencyEn());
         }
 
-        holder.price_tv.setText(car.getAuctionInfo().getCurrentPrice());
-        holder.bids_tv.setText(car.getAuctionInfo().getBids());
-        holder.lot_tv.setText(car.getAuctionInfo().getLot());
+        holder.price_tv.setText(String.valueOf(car.getAuctionInfo().getCurrentPrice()));
+        holder.bids_tv.setText(String.valueOf(car.getAuctionInfo().getBids()));
+        holder.lot_tv.setText(String.valueOf(car.getAuctionInfo().getLot()));
         holder.timeLeft_tv.setText(car.getAuctionInfo().getEndDateEn());
 
         String url = car.getImage();
+        url = url.replace("[w]", "0");
+        url = url.replace("[h]", "0");
         Picasso.with(context).load(url).fit().into(holder.image);
 
         holder.linearLayout.setTag(position);
