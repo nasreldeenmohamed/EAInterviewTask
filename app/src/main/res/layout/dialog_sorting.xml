@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/sort_by"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioEndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/end_date" />
+
+        <RadioButton
+            android:id="@+id/radioPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/price" />
+
+        <RadioButton
+            android:id="@+id/radioYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/year" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonDialogDone"
+        android:layout_width="260dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/done"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+</LinearLayout>

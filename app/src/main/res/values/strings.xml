@@ -11,4 +11,9 @@
     <string name="filter">Filter</string>
     <string name="sort">Sort</string>
     <string name="grid_view">Grid View</string>
+    <string name="sort_by">Sort by</string>
+    <string name="end_date">End Date</string>
+    <string name="price">Price</string>
+    <string name="year">Model Year</string>
+    <string name="done">Done</string>
 </resources>

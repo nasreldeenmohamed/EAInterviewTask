@@ -4,6 +4,10 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.Log;
 
+import java.util.Collections;
+import java.util.List;
+
+import ae.emiratesauction.eainterviewtask.data.Car;
 import ae.emiratesauction.eainterviewtask.data.CarsListData;
 import ae.emiratesauction.eainterviewtask.models.CarsListModel;
 import ae.emiratesauction.eainterviewtask.utils.SharedPref;
@@ -13,6 +17,7 @@ public class CarsListImpl implements CarsListPresenter {
     private Context context;
     private CarsListModel carsListModel;
     private MainActivityView activityView;
+    private CarsListData carsListData;
 
     private SharedPref sharedPref;
     private CountDownTimer countDownTimer;
@@ -50,6 +55,7 @@ public class CarsListImpl implements CarsListPresenter {
 
     @Override
     public void receiveDataFromModel(CarsListData data) {
+        this.carsListData = data;
         activityView.showCarListWhenReady(data);
     }
 
@@ -64,4 +70,31 @@ public class CarsListImpl implements CarsListPresenter {
             countDownTimer.cancel();
         }
     }
+
+
+    public void sortCarsList(int type) {
+        if(type == 1)
+            sortByEndDate();
+        else if(type == 2)
+            sortByPrice();
+        else if(type == 3)
+            sortByYear();
+    }
+
+    private void sortByYear() {
+        Collections.sort(carsListData.getCars());
+        activityView.showCarListWhenReady(carsListData);
+    }
+
+    private void sortByPrice() {
+        Collections.sort(carsListData.getCars(), Car.PriceComparator);
+        activityView.showCarListWhenReady(carsListData);
+    }
+
+    private void sortByEndDate() {
+        Collections.sort(carsListData.getCars(), Car.EndDateComparator);
+        activityView.showCarListWhenReady(carsListData);
+    }
+
+
 }

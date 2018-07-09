@@ -1,9 +1,13 @@
 package ae.emiratesauction.eainterviewtask.data;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparable<Car> {
     @SerializedName("carID")
     @Expose
     private Integer carID;
@@ -224,5 +228,47 @@ public class Car {
     public void setAuctionInfo(AuctionInfo auctionInfo) {
         this.auctionInfo = auctionInfo;
     }
+
+    @Override
+    public int compareTo(@NonNull Car carToCompare) {
+        int compareYear = carToCompare.getYear();
+
+        //ascending order
+//        return this.year - compareYear;
+
+        //descending order
+        return compareYear - this.year;
+    }
+
+    public static Comparator<Car> PriceComparator  = new Comparator<Car>() {
+
+        @Override
+        public int compare(Car o1, Car o2) {
+            int price1 = o1.getAuctionInfo().getCurrentPrice();
+            int price2 = o2.getAuctionInfo().getCurrentPrice();
+
+            //ascending order
+            return price1 - price2;
+
+            //descending order
+//            return price2 - price1;
+        }
+    };
+
+    public static Comparator<Car> EndDateComparator  = new Comparator<Car>() {
+
+        @Override
+        public int compare(Car o1, Car o2) {
+            int endDate1 = o1.getAuctionInfo().getEndDate();
+            int endDate2 = o2.getAuctionInfo().getEndDate();
+
+            //ascending order
+            return endDate1 - endDate2;
+
+            //descending order
+//            return price2 - price1;
+        }
+    };
+
 
 }

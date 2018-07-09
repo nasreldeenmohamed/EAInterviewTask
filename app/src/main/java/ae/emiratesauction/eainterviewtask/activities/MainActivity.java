@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -15,6 +16,7 @@ import ae.emiratesauction.eainterviewtask.R;
 import ae.emiratesauction.eainterviewtask.adapters.CarsAdapter;
 import ae.emiratesauction.eainterviewtask.data.CarsListData;
 import ae.emiratesauction.eainterviewtask.presenter.CarsListImpl;
+import ae.emiratesauction.eainterviewtask.utils.SortingDialog;
 import ae.emiratesauction.eainterviewtask.view.MainActivityView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     RecyclerView recyclerView;
     @BindView(R.id.swipeRefresh)
     SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.linearSort)
+    LinearLayout sort_ll;
 
     CarsListImpl carsListPresenter;
     CarsAdapter carsAdapter;
@@ -56,6 +60,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                     }
                 }
         );
+
+        sort_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SortingDialog sortingDialog = new SortingDialog(MainActivity.this, carsListPresenter);
+                sortingDialog.show();
+            }
+        });
 
     }
 

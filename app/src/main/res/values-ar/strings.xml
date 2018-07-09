@@ -11,4 +11,9 @@
     <string name="filter">تصفية</string>
     <string name="sort">ترتيب</string>
     <string name="grid_view">عرض كجدول</string>
+    <string name="sort_by">Sort by</string>
+    <string name="end_date">End Date</string>
+    <string name="price">Price</string>
+    <string name="year">Model Year</string>
+    <string name="done">Done</string>
 </resources>
