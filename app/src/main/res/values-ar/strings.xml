@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EAInterviewTask</string>
+    <string name="cars_machinery">السيارات والماكينات</string>
+    <string name="scroll_down_to_search">اسحب للأسفل للبحث</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="lot">لوت #</string>
+    <string name="bids">العروض</string>
+    <string name="time_left">الوقت المتبقي</string>
+    <string name="aed">درهم</string>
+    <string name="no_data">لا يوجد بيانات للعرض</string>
+    <string name="filter">تصفية</string>
+    <string name="sort">ترتيب</string>
+    <string name="grid_view">عرض كجدول</string>
+</resources>

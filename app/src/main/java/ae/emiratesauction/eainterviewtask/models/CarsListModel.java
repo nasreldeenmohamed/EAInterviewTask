@@ -22,19 +22,15 @@ public class CarsListModel {
     private CarsListData carsListData;
     private SharedPref sharedPref;
     private Gson gson;
+    Context context;
 
     private CarsListPresenter presenter;
 
     public CarsListModel(Context context, CarsListPresenter presenter1) {
         presenter = presenter1;
+        this.context = context;
         sharedPref = new SharedPref(context);
         gson = new Gson();
-
-        if (ConnectionDetector.isConnectingToInternet(context)) {
-            fetchDataFromServer();
-        } else {
-            fetchDataFromLocalDB();
-        }
     }
 
     private void fetchDataFromServer() {
@@ -47,6 +43,8 @@ public class CarsListModel {
                     carsListData = response.body();
 
                     sharedPref.setString("carsList", gson.toJson(carsListData));
+                    sharedPref.setString("ticks", carsListData.getTicks());
+                    sharedPref.setInteger("refreshInterval", carsListData.getRefreshInterval());
 
                     presenter.receiveDataFromModel(carsListData);
                 } else {
@@ -82,7 +80,13 @@ public class CarsListModel {
         this.carsListData = carsListData;
     }
 
-    public CarsListData getCarsListData() {
-        return carsListData;
+    public void getCarsListData() {
+        if (ConnectionDetector.isConnectingToInternet(context)) {
+            fetchDataFromServer();
+        } else {
+            fetchDataFromLocalDB();
+        }
     }
+
+
 }

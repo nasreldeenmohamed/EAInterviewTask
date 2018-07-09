@@ -6,4 +6,6 @@ public interface MainActivityView {
     void showCarListWhenReady(CarsListData data);
 
     void showErrorMessage();
+
+    void showLoadingMode();
 }

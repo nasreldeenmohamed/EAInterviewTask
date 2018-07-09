@@ -8,4 +8,7 @@
     <string name="time_left">Time Left</string>
     <string name="aed">AED</string>
     <string name="no_data">No Data to Show!</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
+    <string name="grid_view">Grid View</string>
 </resources>

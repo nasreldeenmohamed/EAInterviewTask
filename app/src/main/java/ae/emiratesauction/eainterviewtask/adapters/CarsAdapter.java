@@ -14,9 +14,11 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Locale;
 
 import ae.emiratesauction.eainterviewtask.R;
 import ae.emiratesauction.eainterviewtask.data.Car;
+import ae.emiratesauction.eainterviewtask.utils.TimeLeftCalculation;
 
 /**
  * Created by ASUS on 03/05/2016.
@@ -25,12 +27,12 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
 
     private Context context;
     private List<Car> CarsList;
-    private String LangCode;
+    TimeLeftCalculation timeLeftCalculation;
 
-    public CarsAdapter(Context con, List<Car> list, String lang) {
+    public CarsAdapter(Context con, List<Car> list) {
         context = con;
         this.CarsList = list;
-        this.LangCode = lang;
+        timeLeftCalculation = new TimeLeftCalculation();
     }
 
     @Override
@@ -45,7 +47,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final Car car = CarsList.get(position);
 //        holder.category_tv.setText(Day.getCategory());
-        if (LangCode.equals("ar")) {
+        if (Locale.getDefault().getDisplayLanguage().equals("العربية")) {
             holder.title_tv.setText(String.format("%s %s %s %d", car.getMakeAr(),
                     car.getModelAr(), car.getBodyAr(), car.getYear()));
             holder.currency_tv.setText(car.getAuctionInfo().getCurrencyAr());
@@ -58,7 +60,11 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
         holder.price_tv.setText(String.valueOf(car.getAuctionInfo().getCurrentPrice()));
         holder.bids_tv.setText(String.valueOf(car.getAuctionInfo().getBids()));
         holder.lot_tv.setText(String.valueOf(car.getAuctionInfo().getLot()));
-        holder.timeLeft_tv.setText(car.getAuctionInfo().getEndDateEn());
+
+        holder.timeLeft_tv.setText(timeLeftCalculation.splitToComponentTimes(car.getAuctionInfo().getEndDate()));
+        if (timeLeftCalculation.isLessThan5Mins())
+            holder.timeLeft_tv.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+//        holder.timeLeft_tv.setText(car.getAuctionInfo().getEndDateEn());
 
         String url = car.getImage();
         url = url.replace("[w]", "0");

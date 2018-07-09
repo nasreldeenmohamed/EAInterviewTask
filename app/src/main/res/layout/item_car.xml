@@ -11,13 +11,26 @@
     <LinearLayout
         android:id="@+id/linearLayoutItemCar"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="120dp">
 
-        <ImageView
-            android:id="@+id/imageViewItemCar"
-            android:layout_width="150dp"
-            android:layout_height="120dp" />
+        <FrameLayout
+            android:layout_width="140dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewItemCar"
+                android:layout_width="140dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_margin="8dp"
+                android:background="@color/gray_bg" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,40 +39,44 @@
             android:padding="4dp">
 
             <TextView
+                android:layout_marginBottom="4dp"
                 android:id="@+id/textViewItemTitle"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:text="Car Title"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
 
                 <TextView
                     android:id="@+id/textViewItemPrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:text="Price"
                     android:textColor="@android:color/holo_green_light"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewCurrency"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="start"
                     android:paddingEnd="4dp"
                     android:paddingStart="4dp"
                     android:text="@string/aed"
-                    android:textColor="@android:color/holo_green_light" />
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="25dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
@@ -67,7 +84,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/lot"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -75,7 +93,8 @@
                     android:layout_weight="0.5"
                     android:gravity="center"
                     android:text="@string/bids"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -83,12 +102,13 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/time_left"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="25dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textViewItemLot"
@@ -102,7 +122,7 @@
                     android:id="@+id/textViewItemBids"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:gravity="center"
                     android:textColor="@android:color/black" />
 

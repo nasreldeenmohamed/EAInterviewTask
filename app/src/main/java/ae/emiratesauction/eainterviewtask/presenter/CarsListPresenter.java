@@ -6,4 +6,5 @@ public interface CarsListPresenter {
     void receiveDataFromModel(CarsListData data);
 
     void showNoDataToView();
+
 }

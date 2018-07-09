@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,9 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="112.5dp"
-            android:paddingTop="20dp"
             android:background="@color/colorPrimary"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -48,6 +47,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:text="EN"
+                android:visibility="invisible"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
@@ -60,7 +60,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="37.5dp">
 
                 <TextView
                     android:id="@+id/textViewCounter"
@@ -87,16 +87,23 @@
                     android:text="@string/loading"
                     android:textSize="20sp" />
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerViewCarsList"
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/swipeRefresh"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
 
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerViewCarsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </android.support.v4.widget.SwipeRefreshLayout>
             </FrameLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-    <include layout="@layout/layout_view_bar"/>
+    <include layout="@layout/layout_view_bar" />
 
 </FrameLayout>
